@@ -41,7 +41,8 @@ int _printf(const char *format, ...)
 					i += ev_print_func(format, i + 1);
 				}
 
-			}i++;
+			}
+			i++;
 		}
 
 		else
