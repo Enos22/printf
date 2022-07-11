@@ -1,4 +1,9 @@
 #include "main.h"
+#include <stddef.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
 * _printf - formatted output conversion and print data.

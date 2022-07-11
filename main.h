@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
-
+#include <limits.h>
 /**
  * struct print - struct for printer functions
  * @type_arg: identifier
@@ -16,11 +16,8 @@
 typedef struct print
 
 {
-
-		char *type_arg;
-
-			int (*f)(va_list, char *, unsigned int);
-
+	char *type_arg;
+	int (*f)(va_list, char *, unsigned int);
 } print_t;
 
 int _printf(const char *format, ...);
