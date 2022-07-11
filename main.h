@@ -14,7 +14,6 @@
  */
 
 typedef struct print
-
 {
 	char *type_arg;
 	int (*f)(va_list, char *, unsigned int);
