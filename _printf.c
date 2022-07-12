@@ -5,36 +5,46 @@
  * @format: lists the arguments passed
  * Description: select the format
  *
- * Return: total number of characters printed
+ * Return: length of the formatted output string
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	const char *trav;
-	int (*pfunc)(va_list);
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
+	va_list arguments;
+	flags_t flags = {0, 0, 0};
 
-	int count = 0;
+	register int count = 0;
 
-	va_start(args, format);
+	va_start(arguments, format);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-
-	for (trav = format; *trav; trav++)
+	for (p = format; *p; p++)
 	{
-		if (*trav == '%')
+		if (*p == '%')
 		{
-			trav++;
-			pfunc = get_print(*trav);
+			p++;
+			if (*p == '%')
+			{
+				count += _putchar('%');
+				continue;
+			}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
 			count += (pfunc)
-				? pfunc(args)
-				: _printf("%%%c", *trav);
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
 		}
 		else
-			count += _putchar(*trav);
+			count += _putchar(*p);
 	}
-	va_end(args);
+
+	_putchar(-1);
+	va_end(arguments);
 	return (count);
 }
+
