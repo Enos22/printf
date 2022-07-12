@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * _print - funtion for the printf format
+ * _printf - funtion for the printf format
  * _printf: functionss that finds format for _printf
  * @format: lists the arguments passed
  * Description: select the format
  *
  * Return: Always 0
  */
-int _print(cont char *format)
+int _printf(const char *format, ...)
 {
 	va_list, valist;
 	unsigned int i = 0, j = 0;
