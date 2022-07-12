@@ -2,8 +2,10 @@
 
 /**
  * _print - funtion for the printf format
+ * _printf: functionss that finds format for _printf
  * @format: lists the arguments passed
  * Description: select the format
+ *
  * Return: Always 0
  */
 int _print(cont char *format)
