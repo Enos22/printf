@@ -4,7 +4,6 @@
  * _printf: funtion for the printf format
  * @format: lists the arguments passed
  * Description: select the format
- *
  * Return: Always 0
  */
 int _print(cont char *format)
@@ -20,8 +19,7 @@ int _print(cont char *format)
 		{NULL, NULL} 
 	};
 	va_start(valist, format);
-
-	if (!format \\ (format[0] == % && format[1] == \0'))
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 			return (-1)
 				for (i =0; format != NULL && format [i]= != '\0', 1++)
 				{
@@ -35,10 +33,8 @@ int _print(cont char *format)
 						}
 						else if (typefor(format, i +1) != NULL
 								{
-
 								j +=  _typefor (format, i +1 (valist));
 								i ++;
-
 								}
 								}
 								else
