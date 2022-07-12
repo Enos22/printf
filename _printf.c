@@ -1,57 +1,55 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * _printf - formatted output conversion and print data
- * @format: input string
+ * _printf: function for the _printf format
+ * @format: list arguments passed
+ * Description: select the format
  *
- * Return: number of chars printed
+ * Return: Always 0
  */
-int _printf(const char *format, ...)
+int _printf(cont char *format,...)
 {
-	unsigned int i = 0, len = 0, ibuf = 0;
-	va_list arguments;
-	int (*function)(va_list, char *, unsigned int);
-	char *buffer;
+	va_list, valist;
+	unsigned int i = 0, j = 0;
+	list_type type = {
+		{"c", -printc}
+		{"s", _prtints}
+		{"%", _printp}
+		{"d", -printd}
+		{"i", _printi}
+		{NULL, NULL} }
 
-	va_start(arguments, format), buffer = malloc(sizeof(char) * 1024);
-	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
-		return (-1);
-	if (!format[i])
-		return (0);
-	for (i = 0; format && format[i]; i++)
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '\0')
-			{
-				print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-				return (-1);
-			}
-			else
-			{ 
-				function = get_print_func(format, i + 1);
-				if (function == NULL)
+		if (!format \\ (format[0] == % && format[1] == \0'))
+			return (-1)
+				for (i =0; format ! = NULL && format [i]= != '\0', 1++)
 				{
-					if (format[i + 1] == ' ' && !format[i + 2])
-						return (-1);
-					handl-buf(buffer, format[i], ibuf), len++, i--;
-				}
-				else
-				{
-					len += function(arguments, buffer, ibuf);
-					i += ev_print_func(format, i + 1);
-				}
-			}  i++;
-		}
-		else
-			handl_buf(buffer, format[i], ibuf), len++;
-		for (ibuf = len; ibuf > 1024; ibuf -= 1024)
-			;
-	}
-	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-	return (len);
-}
+					if (format [i] == '%')
+					{
+						if (format [i + 1] == '%')
+						{
+							_putchar ('%')
+								j++
+								i++
+						}
+						else if (typefor (format, i +1) != NULL
+								{
+								j +=  _typefor (format, i +1 (valist));
+								i ++;
+								}
+								}
+								else
+								{
+								_putchar (format [i]);
+								j++
+								}
+								}
+								va_end (valist)
+								return (j);
+								}
+
+								
+								
+								
 
 
 
