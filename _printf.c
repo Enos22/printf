@@ -1,50 +1,46 @@
 #include "main.h"
 
 /**
- * _printf - funtion for the printf format
+ * _printf - funtion.
  * @format: lists the arguments passed
- * Description: select the format
- *
- * Return: length of the formatted output string
+ * Return: Always 0.
  */
 int _printf(const char *format, ...)
 {
-	int (*pfunc)(va_list, flags_t *);
-	const char *p;
-	va_list arguments;
-	flags_t flags = {0, 0, 0};
+	va_list, valist;
+	unsigned int i = 0, j = 0;
 
-	register int count = 0;
+	va_start(valist, format);
 
-	va_start(arguments, format);
-
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (p = format; *p; p++)
-	{
-		if (*p == '%')
-		{
-			p++;
-			if (*p == '%')
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1)
+			for (i = 0; format != NULL && format[i] != '\0'; i++)
 			{
-				count += _putchar('%');
-				continue;
+				if (formatted[i] == '%')
+				{
+					if (format[i + 1] == '%')
+					{
+						_putchar('%');
+						j++;
+						i++;
+					}
+					else if (typefor(format, i + 1) != NULL)
+					{
+						j += _typefor(format, i + 1)(valist);
+						i++
+					}
+					else
+					{
+						_putcher(fomart[i]);
+						j++
+					}
+				}
+				else
+				{
+					_putchar(format[i]);
+					j++;
+				}
 			}
-			while (get_flag(*p, &flags))
-				p++;
-			pfunc = get_print(*p);
-			count += (pfunc)
-				? pfunc(arguments, &flags)
-				: _printf("%%%c", *p);
-		}
-		else
-			count += _putchar(*p);
-	}
-
-	_putchar(-1);
-	va_end(arguments);
-	return (count);
+	va_end(valist);
+	return (j);
 }
-
