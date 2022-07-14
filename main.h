@@ -10,9 +10,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /**
- * struct flags - struct containing flags to "turn on"
+ * struct flags - contain flags to 'turn on'
  * Description: describes space, and hash
  * @plus: The flag for the '+' character
  * @space: The Flag for the ' ' character
